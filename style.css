@@ -1,0 +1,54 @@
+/* Reset some default styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    color: #F8FAE5;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+
+h1 {
+    color: #F8FAE5;
+    text-align: center;
+}
+
+#particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+/* Adjustments for the video and canvases */
+#myVideo, canvas {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border: 1px solid #000000;
+}
+
+
+/* Adjustments for the input range and button */
+input[type="range"] {
+    width: 70%;
+    margin-right: 10px;
+}
+
+#myButton {
+    margin-top: 10px;
+}
+
+/* Adjustments for the footer */
+footer {
+    margin-top: 20px;
+    text-align: center;
+}

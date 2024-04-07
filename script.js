@@ -14,6 +14,11 @@ window.onload = function () {
     //Threshold for edge detection
     var threshold = 250;
 
+    /* particlesJS.load(@dom-id, @path-json, @callback (optional)); */
+    particlesJS.load('particles-js', 'particles.json', function() {
+    console.log('callback - particles.js config loaded');
+    });
+
     //Play/Pause button event handler
     button.onclick = function () {
         if (video.paused) {
