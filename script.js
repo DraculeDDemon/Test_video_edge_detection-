@@ -1,6 +1,4 @@
 window.onload = function () {
-
-    //Get all necessary HTML elements
     var canvas1 = document.getElementById("myCanvas1");
     var context1 = canvas1.getContext("2d");
 
@@ -11,65 +9,57 @@ window.onload = function () {
     var slider = document.getElementById("intensity");
     var button = document.getElementById("myButton");
 
-    //Threshold for edge detection
-    var threshold = 250;
+    var threshold = 300;
 
+    // Thêm sự kiện cho input để tải lên video mới
+    var videoInput = document.getElementById("videoInput");
+    videoInput.addEventListener("change", function (event) {
+        var file = event.target.files[0];
+        var url = URL.createObjectURL(file);
+        video.src = url;
+    });
 
-    //Play/Pause button event handler
+    // Các sự kiện xử lý như trước
+
     button.onclick = function () {
         if (video.paused) {
             video.play();
             button.innerHTML = "Pause";
-        }
-        else {
+        } else {
             video.pause();
             button.innerHTML = "Play";
         }
     };
 
-    //Intensity slider event handler (threshold = MAX - intensity)
     slider.oninput = function () {
         threshold = 500 - parseInt(slider.value);
     };
 
-    //Do some initializations when video is ready
     video.oncanplay = function () {
         var vid = this;
-
         canvas1.width = canvas2.width = vid.videoWidth;
         canvas1.height = canvas2.height = vid.videoHeight;
-
         button.disabled = false;
     };
 
-    //Extract video frames and detect edge while video is playing
     video.onplay = function () {
         var vid = this;
-
         (function loop() {
             if (!vid.paused && !vid.ended) {
-
-                //Draw original current frame on context1
                 context1.drawImage(vid, 0, 0);
-
-                //Get image data from context1 and detect edge
                 var frameData = context1.getImageData(0, 0, vid.videoWidth, vid.videoHeight);
                 var frameEdge = sobel(frameData, threshold);
-
-                //Draw edge image data on context2
                 context2.putImageData(frameEdge, 0, 0);
-
-                //Loop these things every 1000/30 miliseconds (30 fps)
                 setTimeout(loop, 1000 / 30);
             }
         })();
     };
 
-    //Change button to "Play" when video has ended
     video.onended = function () {
         button.innerHTML = "Play";
     };
 };
+
 
 function sobel(imgData, th) {
 
