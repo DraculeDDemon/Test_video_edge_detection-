@@ -14,13 +14,13 @@ input[type="file"] {
     display: inline-block;
     padding: 6px 12px;
     cursor: pointer;
-    background-color: #f0f0f0;
+    background-color: #A9B388;
     color: #333;
     border-radius: 4px;
   }
   
   .custom-file-upload:hover {
-    background-color: #e0e0e0;
+    background-color: #A9B388;
   }
 
 .container {
@@ -51,7 +51,7 @@ h1 {
     height: auto;
     display: block;
     margin: 0 auto;
-    border: 1px solid #000000;
+    border: 2px solid #F8FAE5;
 }
 
 
@@ -62,6 +62,7 @@ input[type="range"] {
 }
 
 #myButton {
+    background-color: #A9B388;
     margin-top: 10px;
 }
 
