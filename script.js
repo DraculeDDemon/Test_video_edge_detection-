@@ -9,17 +9,15 @@ window.onload = function () {
     var slider = document.getElementById("intensity");
     var button = document.getElementById("myButton");
 
-    var threshold = 300;
+    var threshold = 400;
 
-    // Thêm sự kiện cho input để tải lên video mới
     var videoInput = document.getElementById("videoInput");
+
     videoInput.addEventListener("change", function (event) {
         var file = event.target.files[0];
         var url = URL.createObjectURL(file);
         video.src = url;
     });
-
-    // Các sự kiện xử lý như trước
 
     button.onclick = function () {
         if (video.paused) {
