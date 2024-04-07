@@ -14,10 +14,6 @@ window.onload = function () {
     //Threshold for edge detection
     var threshold = 250;
 
-    /* particlesJS.load(@dom-id, @path-json, @callback (optional)); */
-    particlesJS.load('particles-js', 'particles.json', function() {
-    console.log('callback - particles.js config loaded');
-    });
 
     //Play/Pause button event handler
     button.onclick = function () {
@@ -121,3 +117,8 @@ function sobel(imgData, th) {
 
     return newImgData;
 }
+
+
+particlesJS.load('particles-js', 'particlesjs-config.json', function() {
+    console.log('particles.js loaded');
+});
